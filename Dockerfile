@@ -1,6 +1,6 @@
 FROM php:7.0-apache
 
-RUN apt-get update && apt-get install -y wget unzip sudo openssh-client
+RUN apt-get update && apt-get install -y wget unzip sudo openssh-client sshpass 
 
 RUN wget https://github.com/nickola/web-console/releases/download/v0.9.7/webconsole-0.9.7.zip && \
   unzip webconsole-0.9.7.zip -d / && \
