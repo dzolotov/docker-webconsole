@@ -1,11 +1,11 @@
 FROM php:7.0-apache
 
-RUN apt-get update && apt-get install -y wget unzip
+RUN apt-get update && apt-get install -y wget unzip sudo su
 
 RUN wget https://github.com/nickola/web-console/releases/download/v0.9.7/webconsole-0.9.7.zip && \
   unzip webconsole-0.9.7.zip -d / && \
   mv /webconsole/* /var/www/html/ && \
-  rmdir /webconsole
+  rmdir /webconsole && echo "www ALL=(ALL) NOPASSWD: ALL" >/etc/sudoers
 
 WORKDIR /var/www/html/
 
